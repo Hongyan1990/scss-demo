@@ -1,6 +1,7 @@
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
 	mode: 'development',
@@ -26,12 +27,25 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				use: ['style-loader', 'css-loader', 'sass-loader']
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							hmr: true
+						}
+					}, 
+					'css-loader', 
+					'sass-loader'
+				]
 			}
 		]
 	},
 	plugins: [
 		new HTMLPlugin({template: path.join(__dirname, './src/index.template.html'), title: 'hello scss'}),
-		new VueLoaderPlugin()
+		new VueLoaderPlugin(),
+		new MiniCssExtractPlugin({
+			filename: '[name].css',
+			chunkFilename: '[id].css'
+		})
 	]
 }

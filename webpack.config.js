@@ -7,13 +7,15 @@ module.exports = {
 	mode: 'development',
 	devServer: {
 		hot: true,
-		contentBase: path.join(__dirname, './dist')
+		contentBase: path.join(__dirname, './dist'),
+		historyApiFallback: true
 	},
 	devtool: 'source-map',
 	entry: path.resolve(__dirname, './src/main.js'),
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, './dist')
+		path: path.resolve(__dirname, './dist'),
+		// publicPath: '/dist/'
 	},
 	module: {
 		rules: [
@@ -37,6 +39,18 @@ module.exports = {
 					'css-loader', 
 					'postcss-loader',
 					'sass-loader'
+				]
+			},
+			{
+				test: /\.(jpg|jpeg|png|gif|svg)$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 1024 * 30,
+							fallback: 'file-loader'
+						}
+					}
 				]
 			}
 		]

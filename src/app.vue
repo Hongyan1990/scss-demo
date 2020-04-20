@@ -4,6 +4,9 @@
 			<router-link to="/scss" >scss</router-link>
 			<router-link to="/shadow" >box-shadow</router-link>
 			<router-link to="/gradients" >linear-gradients</router-link>
+			<router-link to="/2d" >css3-2d</router-link>
+			<router-link to="/3d" >css3-3d</router-link>
+			<router-link to="/transition" >Transition</router-link>
 		</div>
 		<div class="content">
 			<router-view></router-view>

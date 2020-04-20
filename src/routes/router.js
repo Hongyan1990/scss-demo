@@ -16,6 +16,18 @@ const routes = [
 	{
 		path: '/gradients',
 		component: () => import('../views/LinearGradients.vue')
+	},
+	{
+		path: '/2d',
+		component: () => import('../views/Css2D.vue')
+	},
+	{
+		path: '/3d',
+		component: () => import('../views/Css3D.vue')
+	},
+	{
+		path: '/transition',
+		component: () => import('../views/Transition.vue')
 	}
 ]
 

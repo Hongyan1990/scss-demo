@@ -27,6 +27,11 @@
 			return {
 				imgURl
 			}
+		},
+		methods: {
+			showName () {
+				
+			}
 		}
 	}
 </script>
